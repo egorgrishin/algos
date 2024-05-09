@@ -14,6 +14,8 @@ class ListNode {
     int val;
     ListNode next;
 
+    ListNode() {}
+
     ListNode(int val) {
         this.val = val;
     }
@@ -26,17 +28,12 @@ class ListNode {
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int sum = l1.val + l2.val;
-        l1 = l1.next;
-        l2 = l2.next;
-        int append = sum / 10;
-        sum %= 10;
-
-        ListNode node = new ListNode(sum);
+        int sum, append = 0;
+        ListNode node = new ListNode();
         ListNode last = node;
 
-        while (l1 != null || l2 != null) {
-            sum = 0;
+        while (l1 != null || l2 != null || append > 0) {
+            sum = append;
             if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
@@ -45,18 +42,12 @@ class Solution {
                 sum += l2.val;
                 l2 = l2.next;
             }
-            sum += append;
             append = sum / 10;
             sum %= 10;
-
             last.next = new ListNode(sum);
             last = last.next;
         }
 
-        if (append > 0) {
-            last.next = new ListNode(append);
-        }
-
-        return node;
+        return node.next;
     }
 }
