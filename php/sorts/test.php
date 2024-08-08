@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once 'bubble.php';
 require_once 'comb.php';
+require_once 'gnome.php';
 require_once 'insert.php';
 require_once 'shaker.php';
 require_once 'shell.php';
@@ -21,6 +22,7 @@ for ($i = 0; $i < ITERATIONS_COUNT; $i++) {
     if (
         bubbleSort($nums, $cmp) !== $sorted ||
         combSort($nums, $cmp) !== $sorted ||
+        gnomeSort($nums, $cmp) !== $sorted ||
         insertSort($nums, $cmp) !== $sorted ||
         shakerSort($nums, $cmp) !== $sorted ||
         shellSort($nums, $cmp) !== $sorted
