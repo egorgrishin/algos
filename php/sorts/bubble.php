@@ -7,7 +7,7 @@ function bubbleSort(array $array, callable $cmp): array
     for ($i = 0; $i < $count; $i++) {
         $isSorted = true;
         for ($j = $i + 1; $j < $count; $j++) {
-            if ($cmp($array[$i], $array[$j])) {
+            if ($cmp($array[$i], $array[$j]) > 0) {
                 [$array[$i], $array[$j]] = [$array[$j], $array[$i]];
                 $isSorted = false;
             }
@@ -16,9 +16,3 @@ function bubbleSort(array $array, callable $cmp): array
     }
     return $array;
 }
-
-$nums = [1, 9, 2, 8];
-var_dump(implode(',', bubbleSort($nums, fn (int $a, int $b): bool => $a > $b)));
-var_dump(implode(',', bubbleSort($nums, fn (int $a, int $b): bool => $a < $b)));
-
-
