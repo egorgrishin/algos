@@ -4,11 +4,11 @@ declare(strict_types=1);
 function bubbleSort(array $array, callable $cmp): array
 {
     $count = count($array);
-    for ($i = 0; $i < $count; $i++) {
+    for ($i = $count - 1; $i > 0; $i--) {
         $isSorted = true;
-        for ($j = $i + 1; $j < $count; $j++) {
-            if ($cmp($array[$i], $array[$j]) > 0) {
-                [$array[$i], $array[$j]] = [$array[$j], $array[$i]];
+        for ($j = 0; $j < $i; $j++) {
+            if ($cmp($array[$j], $array[$j + 1]) > 0) {
+                [$array[$j], $array[$j + 1]] = [$array[$j + 1], $array[$j]];
                 $isSorted = false;
             }
         }
