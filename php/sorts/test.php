@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once 'bubble.php';
 require_once 'comb.php';
+require_once 'insert.php';
 require_once 'shaker.php';
 
 const ITERATIONS_COUNT = 1000;
