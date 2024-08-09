@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . '/../helper.php';
-
 function quickSort(array $array, callable $cmp)
 {
     $count = count($array);
